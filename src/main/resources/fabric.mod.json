@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "topkacopy",
+  "version": "${version}",
+  "name": "TopkaCopy",
+  "description": "С лёгкостью копируйте сообщения из чата прямиком в буфер обмена!",
+  "authors": ["itzme1on"],
+  "contact": {
+    "homepage": "https://vk.com/mstresurs",
+    "issues": "https://github.com/TopkaTeam/TopkaCopy/issues",
+    "sources": "https://github.com/TopkaTeam/TopkaCopy"
+  },
+  "license": "MIT",
+  "icon": "assets/topkacopy/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "ru.topka.copy.TopkaCopy"
+    ]
+  },
+  "mixins": [
+    "topkachat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.14",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
