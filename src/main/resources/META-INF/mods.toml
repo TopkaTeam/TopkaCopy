@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "MIT"
+[[mods]]
+modId = "topkacopy"
+version = "${file.jarVersion}"
+logoFile = "logo.jpg"
+displayName = "TopkaCopy"
+displayURL = "https://modrinth.com/mod/topkacopy"
+authors = "Corbi"
+description = '''
+Easily copy messages from Minecraft chat to the clipboard by one click!
+'''
+[[dependencies.topkacopy]]
+modId = "forge"
+mandatory = true
+versionRange = "[36,)"
+ordering = "NONE"
+side = "CLIENT"
+[[dependencies.topkacopy]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.16.5,1.17)"
+ordering = "NONE"
+side = "BOTH"
