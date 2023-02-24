@@ -18,6 +18,8 @@ public class ChatMixin {
             TranslatableText text = (TranslatableText) message;
             Style style = text.getStyle().withClickEvent(
                     new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, text.getString())
+            ).withHoverEvent(
+                    new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TranslatableText("topkacopy.chat_hover"))
             );
             ((TranslatableText) message).setStyle(style);
         }
