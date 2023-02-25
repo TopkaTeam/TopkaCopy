@@ -1,9 +1,10 @@
 package ru.topka.copy;
 
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.util.text.event.ClickEvent;
+import net.minecraft.util.text.event.HoverEvent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,7 +17,6 @@ public class TopkaCopy {
 
     public TopkaCopy() {
         MinecraftForge.EVENT_BUS.register(this);
-        new JoinMessageThread().start();
     }
 
 
@@ -25,10 +25,14 @@ public class TopkaCopy {
         @SubscribeEvent
         public static void event(ClientChatReceivedEvent event) {
             ITextComponent component = event.getMessage();
-            if (component instanceof StringTextComponent) {
-                StringTextComponent sComponent = (StringTextComponent) component;
-                Style style = sComponent.getStyle().setClickEvent
-                        (new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, sComponent.getString()));
+            if (component instanceof TranslationTextComponent) {
+                TranslationTextComponent sComponent = (TranslationTextComponent) component;
+                Style style = sComponent.getStyle()
+                        .setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, sComponent.getString()))
+                        .setHoverEvent(new HoverEvent(
+                                HoverEvent.Action.SHOW_TEXT,
+                                new TranslationTextComponent(MOD_ID + ".chat_hover")
+                        ));
                 sComponent.setStyle(style);
                 event.setMessage(sComponent);
             }
