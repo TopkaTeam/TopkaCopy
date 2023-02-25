@@ -7,7 +7,7 @@ group = 'CorbiHack'
 version = '1.0'
 
 java {
-    archivesBaseName = 'topkacopy'
+    archivesBaseName = 'topkacopy-forge-mc' + project.minecraft_version
     toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
